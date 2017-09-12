@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import ProductList from './ProductList'
-import CartContainer from './CartContainer'
+import CartList from './CartList'
+import Total from './Total'
+import '../App.css'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>SHOPPING CART</h1>
+      <div className="App">
+        <h3>SHOPPING CART</h3>
         <hr/>
         <ProductList />
-        <h1>CART</h1>
+        <h3>MY CART</h3>
         <hr/>
-        <CartContainer/>
+        <CartList/>
+        <hr/>
+        <Total/>
       </div>
     )
   }

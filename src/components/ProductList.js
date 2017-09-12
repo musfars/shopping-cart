@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 class ProductList extends Component{
   getAllProductsinfo(){
   return  this.props.products.map((item)=>{
-    return <ProductItem productDetails={item}/>
+    return <ProductItem key={this.props.products.id} productDetails={item}/>
     });
   }
 

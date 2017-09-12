@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import {connect} from 'react-redux';
-import addToCart from '../actions'
+import addToCart from '../actions';
+import {Button} from 'react-materialize'
+import '../App.css'
 
 class ProductItem extends Component{
   render(){
-    return(
-      <li>
-        <Product productInfo={this.props.productDetails}/>
-        <button onClick={() => {this.props.addToCart()}}>ADD TO CART</button>
-      </li>
-    )
+    if(this.props.productDetails.quantity > 0){
+      return(
+        <div className="productItem">
+          <Product productInfo={this.props.productDetails}/>
+          <Button waves='light' onClick={() => {this.props.addToCart()}}>ADD TO CART</Button>
+        </div>
+      )
+    }
+    else{
+      return(
+        <div className="productItem">
+          <Product productInfo={this.props.productDetails}/>
+        </div>
+      )
+    }
   }
 }
 
@@ -21,5 +32,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  return {
+    products: state.productsInfo
+  }
+}
 
-export default connect(null,mapDispatchToProps)(ProductItem);
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductItem);
