@@ -1,8 +1,8 @@
 const addToCart=function(item){
     return{
-        type:"ITEM_SELECTED",
+        type:"ADD_TO_CART",
         payload:item
     };
 }
 
-export default ItemSelected;
+export default addToCart;
