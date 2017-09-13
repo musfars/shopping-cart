@@ -8,7 +8,7 @@ class ProductList extends Component{
       (elem) => elem.price<=this.props.filter.max&&elem.price>=this.props.filter.min 
     )
   return  newProds.map((item)=>(
-      <ProductItem key={this.props.products.id} productDetails={item}/>
+      <ProductItem key={item.id} productDetails={item}/>
     ));
   }
 

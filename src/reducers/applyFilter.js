@@ -8,7 +8,7 @@ export default function(state=initialState,action){
 		case "PRICE_FILTER":
 		let newState={...state};
 		
-		if(action.from!=0&&action.to!=0){
+		if(action.from!==0||action.to!==0){
 		newState.min=action.from;
 		newState.max=action.to;
 		}

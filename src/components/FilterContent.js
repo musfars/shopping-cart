@@ -7,7 +7,7 @@ class FilterContent extends Component{
   constructor(){
     super();
     this.fromValue=0;
-    this.toValue=0;
+    this.toValue=100000;
     this.setFrom=this.setFrom.bind(this);
     this.getFrom=this.getFrom.bind(this);
     this.setTo=this.setTo.bind(this);
@@ -15,7 +15,10 @@ class FilterContent extends Component{
   }
 
   setFrom(e){
-    this.fromValue=e.target.value;
+    if(e.target.value!="")
+      this.fromValue=e.target.value;
+    else
+      this.fromValue=0;
   }
 
   getFrom(){
@@ -23,7 +26,10 @@ class FilterContent extends Component{
   }
 
   setTo(e){
-    this.toValue=e.target.value;
+    if(e.target.value!="")
+      this.toValue=e.target.value;
+    else
+      this.toValue=100000;
   }
   getTo(){
     
