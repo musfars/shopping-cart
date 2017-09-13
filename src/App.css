@@ -1,24 +1,58 @@
+.productItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid grey;
+}
+
+.productItem:last-child {
+    border-bottom: unset;
+}
+
+.productItem button {
+    align-self: center;
+}
+
 .App {
-  text-align: center;
+    margin: 0px 16px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.productName {
+    font-weight: bold;
+    font-size: 18px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.soldOut {
+    color: red;
 }
 
-.App-intro {
-  font-size: large;
+.cartItem {
+    margin: 8px 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid grey;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.cartItem:last-child {
+    border-bottom: unset;
+}
+
+.total {
+    margin: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 16px;
+}
+
+.filter input {
+    width: 200px;
+    margin-left: 8px;
+    margin-right: 64px;
 }
