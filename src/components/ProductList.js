@@ -3,9 +3,13 @@ import ProductItem from './ProductItem'
 import {connect} from 'react-redux';
 class ProductList extends Component{
   getAllProductsinfo(){
-  return  this.props.products.map((item)=>{
-    return <ProductItem key={this.props.products.id} productDetails={item}/>
-    });
+    // console.log(this.props.filter);
+    let newProds = this.props.products.filter( 
+      (elem) => elem.price<=this.props.filter.max&&elem.price>=this.props.filter.min 
+    )
+  return  newProds.map((item)=>(
+      <ProductItem key={this.props.products.id} productDetails={item}/>
+    ));
   }
 
   render(){
@@ -19,7 +23,8 @@ class ProductList extends Component{
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    products: state.productsInfo
+    products: state.productsInfo,
+    filter:state.applyFilter
   }
 }
 
