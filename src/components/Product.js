@@ -4,7 +4,7 @@ class Product extends Component{
   render(){
     if(this.props.productInfo.quantity>0){
       return(
-      <div key={this.props.productInfo.id}>
+      <div key={this.props.productInfo.productId}>
         <div className="productName">{this.props.productInfo.name}</div>
         <div>Price: {this.props.productInfo.price}</div>
         <div>Quantity: {this.props.productInfo.quantity}</div>
@@ -13,7 +13,7 @@ class Product extends Component{
     }
     else{
       return(
-      <div className="soldOut" key={this.props.productInfo.id}>
+      <div className="soldOut" key={this.props.productInfo.productId}>
         <div className="productName">{this.props.productInfo.name}</div>
         <div>Sold Out</div>
       </div>

@@ -10,7 +10,7 @@ class CartList extends Component{
     }
     return this.props.cartItems.map((item) =>
       {return(
-        <div className="cartItem" key={item.id}>
+        <div className="cartItem" key={item.productId}>
           <div className="productName">{item.name}</div>
           <div>Price: {item.price}</div>
           <div>Quantity: {item.quantity}</div>

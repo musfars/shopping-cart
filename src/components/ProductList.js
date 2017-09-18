@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductItem from './ProductItem'
 import {connect} from 'react-redux';
+import fetchProductInfo from '../actions/fetchData';
+import axios from 'axios';
 class ProductList extends Component{
   getAllProductsinfo(){
     // console.log(this.props.filter);
@@ -8,8 +10,12 @@ class ProductList extends Component{
       (elem) => elem.price<=this.props.filter.max&&elem.price>=this.props.filter.min 
     )
   return  newProds.map((item)=>(
-      <ProductItem key={item.id} productDetails={item}/>
+      <ProductItem key={item.productId} productDetails={item}/>
     ));
+  }
+  
+  componentWillMount() {
+    this.props.fetchProduct();
   }
 
   render(){
@@ -21,6 +27,18 @@ class ProductList extends Component{
   }
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchProduct: () => {
+      axios.get('http://10.4.6.36:4000/productListing')
+        .then(function(res){
+          dispatch(fetchProductInfo(res.data.result));
+        }).catch(function(err){
+          console.error("error");
+        });
+    }
+  }
+}
 const mapStateToProps = (state, ownProps) => {
   return {
     products: state.productsInfo,
@@ -28,4 +46,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(ProductList)
+export default connect(mapStateToProps,mapDispatchToProps)(ProductList);
