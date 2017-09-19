@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import checkOut from '../actions/checkOut';
 import {Button} from 'react-materialize';
 import '../App.css'
+import {Link} from 'react-router-dom'
 class CartList extends Component{
   getItems() {
     if(this.props.cartItems.length===0){
@@ -36,7 +37,9 @@ class CartList extends Component{
       <div>
         <ul>{this.getItems()}</ul>
         <div className="total">Total:{this.getTotal()}</div>
+        <Link to="/checkout">
         <Button waves='light' onClick={() => {this.props.checkOut(this.getTotal())}} >CHECKOUT</Button>
+      </Link>
       </div>
     )
   }

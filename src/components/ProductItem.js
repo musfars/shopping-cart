@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Product from './Product';
 import {connect} from 'react-redux';
 import addToCart from '../actions';
-import {Button} from 'react-materialize'
+import {Button} from 'react-materialize';
+import axios from 'axios';
 import '../App.css'
 
 class ProductItem extends Component{
@@ -28,7 +29,22 @@ class ProductItem extends Component{
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addToCart: () => {
-      dispatch(addToCart(ownProps.productDetails))
+      axios.post('http://10.4.6.36:4000/add_to_cart',{
+        "item":
+        {
+          productId: ownProps.productDetails.productId,
+          name: ownProps.productDetails.name,
+          price: ownProps.productDetails.price,
+          quantity:1
+        }
+      })
+      .then(function (res){
+        dispatch(addToCart(res.data.result))
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+      //dispatch(addToCart(ownProps.productDetails))
     }
   }
 }

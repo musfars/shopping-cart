@@ -16,8 +16,6 @@ class App extends Component {
         <h3>MY CART</h3>
         <hr/>
         <CartList/>
-        <hr/>
-        <Total/>
       </div>
     )
   }
