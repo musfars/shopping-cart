@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import '../App.css';
 
 class Checkout extends Component{
   render(){
     return(
-      <h2>Please pay Rs.{this.props.total}</h2>
+      <div className="App">
+        <h3>SHOPPING CART</h3>
+        <hr/>
+        <div className="checkoutTotal">Please pay Rs.{this.props.total}</div>
+      </div>
+      
     )
   }
 }
